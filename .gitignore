@@ -23,7 +23,7 @@ NETWORK_RUNNING
 UniversalTeleporterDeployerTransaction.txt
 UniversalTeleporterDeployerAddress.txt
 UniversalTeleporterMessengerContractAddress.txt
-
+tmp/
 # debug artifacts
 *.debug.txt
 

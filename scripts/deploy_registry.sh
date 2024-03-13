@@ -93,7 +93,8 @@ constructor_encoding=$(cast abi-encode "constructor((uint256,address)[])" "[(1, 
 constructor_encoding=${constructor_encoding:2}
 
 # Deploy the TeleporterRegistry contract 
-deployment_result=$(cast send --private-key $user_private_key --rpc-url $rpc_url --json --create $teleporter_registry_bytecode$constructor_encoding)
+deployment_result=$(cast send --gas-limit 8000000 --private-key $user_private_key --rpc-url $rpc_url --json --create $teleporter_registry_bytecode$constructor_encoding)
+echo $deployment_result
 teleporter_registry_address=$(echo $deployment_result | jq -r .contractAddress)
 deployment_status=$(echo $deployment_result | jq -r .status)
 deployment_tx_id=$(echo $deployment_result | jq -r .transactionHash)
